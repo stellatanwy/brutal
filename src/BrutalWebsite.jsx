@@ -521,8 +521,7 @@ export default function BrutalWebsite() {
           </div>
 
           <p style={{ fontSize:11, color:C.creamFaint, textAlign:"center", marginTop:16, lineHeight:1.8 }}>
-            These findings are based on what Claude can infer from your URL and context.<br/>
-            The more context you provide, the sharper the roast.
+            The more context you add — audience, goal, and product description — the sharper your roast.
           </p>
 
         </div>
