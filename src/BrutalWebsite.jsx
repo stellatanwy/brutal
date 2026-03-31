@@ -96,7 +96,9 @@ Return ONLY valid JSON, no markdown, no explanation:
   "fix_first": "One sentence: the single highest-impact change they should make this week."
 }
 
-Rules: 3-5 findings. Severity must reflect reality — a poorly converting page might have 2-3 criticals. Do not default to one critical and the rest minor. If the page has multiple serious problems, mark them all critical. If it is genuinely a minor issue, mark it minor. Severity distribution should vary per site, not follow a fixed pattern. Be specific — mention what you see on the page. No "consider improving" — say exactly what to do.`;
+Rules: 3-5 findings. Severity must reflect the actual state of the page — do not default to one critical and the rest minor or moderate. A weak page like a generic lead gen tool with vague headlines, unanswered objections, and cluttered UI should return 2-3 criticals. Only assign minor if the issue genuinely has low conversion impact. Ask yourself: would this issue cause a first-time visitor to leave or not convert? If yes, it is critical. Distribute severity honestly per site, not by formula.
+
+Do not be charitable. These are AI product founders who need the truth. If the headline is generic, say it is generic. If the value prop is unclear, say it is unclear. Do not soften findings to seem balanced. Be specific — mention what you see on the page. No "consider improving" — say exactly what to do.`;
 
   try {
     const res = await fetch("/api/messages", {
