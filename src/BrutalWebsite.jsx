@@ -88,7 +88,7 @@ Return ONLY valid JSON, no markdown, no explanation:
     }
   ],
   "rewrite": {
-    "element": "what element (e.g. hero headline, main CTA)",
+    "element": "what element (e.g. hero headline, main Call to Action (CTA))",
     "before": "the current weak copy — make it sound like typical vague startup speak",
     "after": "a sharper, clearer rewrite that speaks directly to the target user's pain"
   },
@@ -234,6 +234,7 @@ export default function BrutalWebsite() {
 
       {/* ══════════ INPUT ══════════ */}
       {step === "input" && (
+        <>
         <div style={st.inner}>
           {/* Hero wordmark */}
           <div style={{ textAlign:"center", padding:"52px 0 40px", position:"relative", overflow:"hidden" }}>
@@ -323,18 +324,18 @@ export default function BrutalWebsite() {
                   <div style={{ ...st.eyebrow, marginBottom:10 }}>The 5-second test</div>
                   <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:14 }}>
                     <div>
-                      <div style={{ fontSize:10, fontFamily:"'Nunito',sans-serif", fontWeight:800, letterSpacing:"2px", textTransform:"uppercase", color:"#22c55e", marginBottom:6 }}>What they understand</div>
+                      <div style={{ fontSize:10, fontFamily:"'Nunito',sans-serif", fontWeight:800, letterSpacing:"2px", textTransform:"uppercase", color:"#22c55e", marginBottom:6 }}>Visitors understand</div>
                       <p style={{ fontSize:13, color:C.cream, lineHeight:1.7 }}>A project management tool built for speed — the headline and demo video make the core value immediately clear.</p>
                     </div>
                     <div>
-                      <div style={{ fontSize:10, fontFamily:"'Nunito',sans-serif", fontWeight:800, letterSpacing:"2px", textTransform:"uppercase", color:C.coral, marginBottom:6 }}>What confuses them</div>
+                      <div style={{ fontSize:10, fontFamily:"'Nunito',sans-serif", fontWeight:800, letterSpacing:"2px", textTransform:"uppercase", color:C.coral, marginBottom:6 }}>Visitors get confused by</div>
                       <p style={{ fontSize:13, color:C.cream, lineHeight:1.7 }}>It's unclear who this is for — "built for modern product teams" is vague enough to apply to any B2B tool on the market.</p>
                     </div>
                   </div>
                 </div>
 
                 {[
-                  { title:"Hero CTA competes with itself", severity:"critical", description:"There are two primary CTAs above the fold — 'Start for free' and 'See how it works' — at the same visual weight. Users hesitate when asked to make two decisions at once.", fix:"Make 'Start for free' the single dominant CTA. Demote 'See how it works' to a text link below the button." },
+                  { title:"Hero Call to Action (CTA) competes with itself", severity:"critical", description:"There are two primary CTAs above the fold — 'Start for free' and 'See how it works' — at the same visual weight. Users hesitate when asked to make two decisions at once.", fix:"Make 'Start for free' the single dominant CTA. Demote 'See how it works' to a text link below the button." },
                   { title:"Social proof is buried", severity:"moderate", description:"The customer logos appear below the fold, after a full-screen product screenshot. Most users won't scroll far enough to see them.", fix:"Move at least one recognisable logo row immediately below the headline, before the product demo." },
                 ].map((f, i) => {
                   const s = SEV[f.severity] || SEV.minor;
@@ -361,24 +362,26 @@ export default function BrutalWebsite() {
             )}
           </div>
 
-          {/* Marquee */}
-          <div style={{ overflow:"hidden", marginTop:48, marginLeft:-24, marginRight:-24 }}>
-            <div style={{ background:C.coral, padding:"12px 0" }}>
-              <div style={{ display:"flex", width:"max-content", animation:"marquee 28s linear infinite" }}>
-                {[0,1].map(i => (
-                  <div key={i} style={{ display:"flex", alignItems:"center", flexShrink:0 }}>
-                    {["NO FLUFF","JUST THE HARD TRUTH","THE FEEDBACK YOUR FRIENDS WERE TOO POLITE TO GIVE","FIX IT BEFORE YOUR USERS DO","NO SUGARCOATING","JUST WHAT NEEDS FIXING"].map((t,j) => (
-                      <span key={j} style={{ display:"flex", alignItems:"center", gap:20 }}>
-                        <span style={{ fontFamily:"'Bagel Fat One',cursive", fontSize:18, color:C.forest, whiteSpace:"nowrap", padding:"0 20px" }}>{t}</span>
-                        <span style={{ width:6, height:6, background:"rgba(13,33,25,.3)", borderRadius:"50%", flexShrink:0 }} />
-                      </span>
-                    ))}
-                  </div>
-                ))}
-              </div>
+        </div>
+
+        {/* Marquee */}
+        <div style={{ overflow:"hidden", marginTop:48 }}>
+          <div style={{ background:C.coral, padding:"12px 0" }}>
+            <div style={{ display:"flex", width:"max-content", animation:"marquee 28s linear infinite" }}>
+              {[0,1].map(i => (
+                <div key={i} style={{ display:"flex", alignItems:"center", flexShrink:0 }}>
+                  {["NO FLUFF","JUST THE HARD TRUTH","THE FEEDBACK YOUR FRIENDS WERE TOO POLITE TO GIVE","FIX IT BEFORE YOUR USERS DO","NO SUGARCOATING","JUST WHAT NEEDS FIXING"].map((t,j) => (
+                    <span key={j} style={{ display:"flex", alignItems:"center", gap:20 }}>
+                      <span style={{ fontFamily:"'Bagel Fat One',cursive", fontSize:18, color:C.forest, whiteSpace:"nowrap", padding:"0 20px" }}>{t}</span>
+                      <span style={{ width:6, height:6, background:"rgba(13,33,25,.3)", borderRadius:"50%", flexShrink:0 }} />
+                    </span>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
         </div>
+        </>
       )}
 
       {/* ══════════ LOADING ══════════ */}
@@ -424,14 +427,14 @@ export default function BrutalWebsite() {
               <div>
                 <div style={{ fontSize:10, fontFamily:"'Nunito',sans-serif", fontWeight:800,
                   letterSpacing:"2px", textTransform:"uppercase", color:"#22c55e", marginBottom:6 }}>
-                  What they understand
+                  Visitors understand
                 </div>
                 <p style={{ fontSize:14, color:C.cream, lineHeight:1.7 }}>{results.first_impression}</p>
               </div>
               <div>
                 <div style={{ fontSize:10, fontFamily:"'Nunito',sans-serif", fontWeight:800,
                   letterSpacing:"2px", textTransform:"uppercase", color:C.coral, marginBottom:6 }}>
-                  What confuses them
+                  Visitors get confused by
                 </div>
                 <p style={{ fontSize:14, color:C.cream, lineHeight:1.7 }}>{results.confusion}</p>
               </div>
