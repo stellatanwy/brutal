@@ -79,6 +79,7 @@ Return ONLY valid JSON, no markdown, no explanation:
 {
   "first_impression": "In one sentence: what does a stranger understand in the first 5 seconds?",
   "confusion": "In one sentence: what is the single most confusing thing they encounter immediately?",
+  "whats_working": ["One specific thing that is genuinely effective on this page.", "A second specific thing that is working well — design, copy, structure, or trust signal."],
   "findings": [
     {
       "title": "short specific finding title",
@@ -440,6 +441,22 @@ export default function BrutalWebsite() {
               </div>
             </div>
           </div>
+
+          {/* What's working */}
+          {results.whats_working?.length > 0 && (
+            <div style={{ ...st.card, borderLeft:`3px solid #22c55e`, marginBottom:20 }}>
+              <div style={{ fontSize:10, fontFamily:"'Nunito',sans-serif", fontWeight:800,
+                letterSpacing:"3px", textTransform:"uppercase", color:"#22c55e", marginBottom:12 }}>
+                What's working
+              </div>
+              {results.whats_working.map((item, i) => (
+                <div key={i} style={{ display:"flex", gap:10, marginBottom: i < results.whats_working.length - 1 ? 10 : 0 }}>
+                  <span style={{ color:"#22c55e", flexShrink:0 }}>✓</span>
+                  <p style={{ fontSize:14, color:C.cream, lineHeight:1.7 }}>{item}</p>
+                </div>
+              ))}
+            </div>
+          )}
 
           {/* Findings */}
           <div style={{ ...st.eyebrow, marginBottom:14 }}>The findings</div>
