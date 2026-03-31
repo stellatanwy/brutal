@@ -96,7 +96,7 @@ Return ONLY valid JSON, no markdown, no explanation:
   "fix_first": "One sentence: the single highest-impact change they should make this week."
 }
 
-Rules: 3-5 findings. At least one critical. Be specific — mention what you see on the page. No "consider improving" — say exactly what to do.`;
+Rules: 3-5 findings. Severity must reflect reality — a poorly converting page might have 2-3 criticals. Do not default to one critical and the rest minor. If the page has multiple serious problems, mark them all critical. If it is genuinely a minor issue, mark it minor. Severity distribution should vary per site, not follow a fixed pattern. Be specific — mention what you see on the page. No "consider improving" — say exactly what to do.`;
 
   try {
     const res = await fetch("/api/messages", {
